@@ -3,29 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gradient Background</title>
+    <title>Responsive Navigation</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             height: 100vh;
             display: flex;
-            justify-content: center;
+            justify-content: left;
             align-items: center;
             background: linear-gradient(to right, purple, orange);
-            font-family: 'Arial', sans-serif;
+            font-family: 'Didot', serif;
             color: white;
         }
 
-        h1 {
+        .container {
+            position: absolute;
+            width: 60%;
+            height: 100%;
+            right: 20%;
+            top: 200px;
             text-align: center;
+            transition: margin-left 0.5s;
+        }
+
+        .box {
+            height: 20%;
+            margin-bottom: 20px;
+            background-color: black;
+        }
+        #intro {
+            width: 50%;
+            height: 50%;
+            text-align: left;
+            font-size: 1.4vw;
+            background-color: transparent;
+        }
+        #intro h1{
+            font-size: 4vw;
+        }
+
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-icon {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        .nav-bar {
+            height: 90%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            overflow-x: hidden;
+            background-color: #111;
+            padding-top: 00px;
+            transition: 0.5s;
+            left: 0%;
+            top: 10%;
+        }
+
+        .nav-bar a {
+            padding: 15px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .nav-bar a:hover {
+            background-color: #555;
+        }
+
+        .menu-btn.active .menu-icon:nth-child(1) {
+            transform: rotate(-45deg) translate(-15px, 6px);
+        }
+
+        .menu-btn.active .menu-icon:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-btn.active .menu-icon:nth-child(3) {
+            transform: rotate(45deg) translate(-15px, -6px);
         }
     </style>
 </head>
 <body>
-    <div>
-        <h1>Gradient Background</h1>
-        <p>This is a simple HTML page with a background gradient from purple to orange.</p>
+
+    <div class="menu-btn" onclick="toggleNav()">
+        <div class="menu-icon"></div>
+        <div class="menu-icon"></div>
+        <div class="menu-icon"></div>
     </div>
+
+    <div class="nav-bar">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="#">Research</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div class="container">
+        <div class="box" id="intro">
+            <p>Hello, I'm</p> 
+            <h1>Felix Song,</h1>
+            <p>
+                an aspiring scientist studying at Tufts University.
+                I enjoy the exploration of the unknown, and I am enthuastic about tackling
+                problems and creating innovative solutions.
+            </p>
+
+        </div>
+        <div class="box" id="template">Box 2</div>
+        <div class="box" id="about">Box 3</div>
+    </div>
+
+    <script>
+        var navOpen = false;
+        function toggleNav() {
+            if(!navOpen){
+                document.querySelector('.nav-bar').style.width = '250px';
+                document.querySelector('.container').style.marginLeft = '250px';
+                document.querySelector('.menu-btn').classList.add('active');
+                navOpen = true;
+            }else{
+                document.querySelector('.nav-bar').style.width = '0';
+                document.querySelector('.container').style.marginLeft= '0';
+                document.querySelector('.menu-btn').classList.remove('active');
+                navOpen = false;
+            }
+        }
+    </script>
+
 </body>
 </html>
