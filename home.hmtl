@@ -8,11 +8,11 @@
         body {
             margin: 0;
             padding: 0;
-            height: 100vh;
+            height: 250vh;
             display: flex;
             justify-content: left;
             align-items: center;
-            background: linear-gradient(to right, purple, orange);
+            background: linear-gradient(to bottom, purple, rgb(255, 128, 0));
             font-family: 'Didot', serif;
             color: white;
         }
@@ -24,23 +24,72 @@
             right: 20%;
             top: 200px;
             text-align: center;
+            font-size: 1vw;
             transition: margin-left 0.5s;
+            
         }
 
         .box {
             height: 20%;
             margin-bottom: 20px;
-            background-color: black;
+            background-color: transparent;
         }
         #intro {
             width: 50%;
             height: 50%;
             text-align: left;
             font-size: 1.4vw;
-            background-color: transparent;
+            line-height: 35px;
         }
         #intro h1{
             font-size: 4vw;
+        }
+        .image1 {
+            position: absolute;
+            right: 20%;
+            top: 20%;
+            width: 25%;
+            height: auto;
+        }
+        #about {
+            height: 50%;
+            margin-top: 200px;
+        }
+        #clickable {
+            height: 40%;
+            border: 0px solid black;
+            margin-top: 200px;
+            display: flex; /* Enable flexbox */
+            justify-content: space-between; /* Add space between child elements */
+            align-items: center;
+
+        }
+        #clickable a {
+            color: white; /* Set the initial color of the link */
+            text-decoration: none; /* Remove default underline */
+            transition: color 0.3s ease; 
+        }
+        #clickable a:hover {
+            color: rgb(149, 0, 255);
+        }
+        #template {
+            width: 45%;
+            border: 2px solid black;
+            height: 80%;
+            padding: 20px;
+            border-radius: 20px;
+        }
+        #contact {
+            width: 45%; /* Adjust the width of the new box */
+            border: 2px solid black;
+            height: 80%;
+            padding: 20px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
         .menu-btn {
@@ -114,6 +163,7 @@
         <a href="#">Research</a>
         <a href="#">Contact</a>
     </div>
+    <img src="face.png" class="image1">
 
     <div class="container">
         <div class="box" id="intro">
@@ -124,12 +174,59 @@
                 I enjoy the exploration of the unknown, and I am enthuastic about tackling
                 problems and creating innovative solutions.
             </p>
-
         </div>
-        <div class="box" id="template">Box 2</div>
-        <div class="box" id="about">Box 3</div>
-    </div>
+        <div class="box" id="about">
+            <h1>Projects</h1>
+            <p>
+                <h3>Identification of Crystals in Liquid to Solid Transition</h3>
+                Using similated data on colloidal crystals transitioning from
+                a liquid state to a solid state, we observed changes in each particle's
+                Voronoi Cell to identiy crystallization in our system. 
+                The Voronoi Cell is the space next to a particle that is closer to that particle
+                than any other neighboring particle and its characteristics have many elements 
+                that could be analyzed to find patterns with crystallization.
+            </p>
+            <p>
+                <h3>Differential Growth in colloidal systems</h3>
+                In a monodispersed hard-sphere colloidal crystal system, 
+                we show evidence of differential growth rates between differing 
+                orientations of FCC crystals. Using confocal microscopy,
+                we can create a 3D rendering of the partlces after crystallization 
+                using visualization software and particle identification. 
+            </p>
+            <p>
+                <h3>Organzation App, TaskBird</h3>
+                I create a Web Application for the purpose to consolidate many task managment 
+                resources into one compatible website. Many people use Google Calendar, Notes app,
+                or other applications to keep tabs on their schedule, so I created an app that not only
+                connects and overlays your own google calendar, but additionally has a simple
+                To-do list, weather app, and additional features to help organize your day.
+            </p>
+            <p>
 
+            </p>
+        </div>
+        <div class="box" id="clickable">
+            <div id="template">
+                <p>If I had 50 words to describe who I am, I would say</p>
+                <p>
+                    I'm an adventurous soul who looks to create memories with 
+                    those around me because I believe that not trying is 
+                    worse than failing. I've read books on the structure of 
+                    the universe, led discussions with inquisitive minds, and traveled to 
+                    different countries to further broaden my perspective of the world.
+                </p>
+                <a href="about.html">To learn more about me, click here</a>
+            </div>
+            <div id="contact">
+                To conntact me at my email or phone number, please refer to the 
+                link below and I will get back to you as soon as possible. <br> <br>
+
+                <a href="contact.html">To contact me, click here</a>
+            </div>
+        </div>
+    </div>
+    
     <script>
         var navOpen = false;
         function toggleNav() {
