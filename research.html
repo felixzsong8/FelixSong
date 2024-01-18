@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navigation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 80px 0 0 0; /* Adjust top padding to move content near the top */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align content to the top */
+            min-height: 100vh;
+            min-width: 1150px;
+            background: linear-gradient(to bottom, purple, rgb(255, 128, 0));
+            font-family: 'Didot', serif;
+            color: white;
+        }
+
+        .container {
+            margin-top: 20px;
+            max-width: 1000px;
+            width: 90%;
+            text-align: center;
+            font-size: 1.2rem;
+            transition: margin-left 0.5s;
+        }
+
+        .box {
+            margin-bottom: 20px;
+            background-color: transparent;
+            position: relative; /* Set position to relative for contained absolute positioning */
+        }
+
+        #proj1, #proj2, #proj3 {
+            font-size: 1.2rem;
+            border: 2px solid black;
+            padding: 25px;
+            border-radius: 20px;
+            position: relative; /* Set position to relative for contained absolute positioning */
+        }
+
+        .text1 {
+            width: 50%;
+            font-size: 14px;
+        }
+
+        .image {
+            position: absolute;
+            max-width: 30%;
+            left: 70%;
+            height: auto;
+        }
+
+        #image1 {
+            top: 120px;
+            transform: translateX(-50%);
+        }
+
+        #image2 {
+            top: 320px;
+            transform: translateX(-50%);
+        }
+
+        #image3 {
+            top: 120px;
+            transform: translateX(-50%);
+        }
+
+        #image4 {
+            top: 320px;
+            transform: translateX(-50%);
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: rgb(149, 0, 255);
+        }
+
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-icon {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        .nav-bar {
+            height: 100vh;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            overflow-x: hidden;
+            background-color: #111;
+            padding-top: 20px;
+            transition: 0.5s;
+            left: 0;
+            top: 80px;
+        }
+
+        .nav-bar a {
+            padding: 15px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .nav-bar a:hover {
+            background-color: #555;
+        }
+
+        .menu-btn.active .menu-icon:nth-child(1) {
+            transform: rotate(-45deg) translate(-15px, 6px);
+        }
+
+        .menu-btn.active .menu-icon:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-btn.active .menu-icon:nth-child(3) {
+            transform: rotate(45deg) translate(-15px, -6px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-btn" onclick="toggleNav()">
+        <div class="menu-icon"></div>
+        <div class="menu-icon"></div>
+        <div class="menu-icon"></div>
+    </div>
+
+    <div class="nav-bar">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    
+    <div class="container">
+        <h1>Research Projects</h1>
+        <div class="box" id="proj1">
+            <h3>Identification of Crystals in Liquid to Solid Transition</h3>
+            <br>
+            <p class="text1">
+                The goal of this project was to develop techniques to identify crystal growth in 
+                the transition between liquid to solid phases. Clasically, there are several methods
+                available to identify crystals, such as Q6 and topology methods. These methods mostly
+                include using a particle's distance to each of its neighboring particles to identify 
+                crystal-like particles. These methods are important and work effeciently in many systems,
+                but we were looking to identify crystal structures formed during the transition between liquid
+                and solid structures. To complete this, we looked at each particles Voronoi structure. <br>
+                <br>
+                A Voronoi Cell by definition is the space closest to a particle more so than any other neighboring particle.
+                Given a system of colloidal particles in a 3D space, this results in a polyhedral structure. With this 
+                polyhedral, we looked at many of its characteristics using a visualization software, Ovito Pro, and 
+                creating python scripts that would allow us to calculate bond angles and face degrees to identify crystal structures.
+                Comparing to other methods, both visually and raw data, we saw similarities between previous identification 
+                methods and ours, and we could identify many cases where small pockets of crystal-like structures were
+                identified during the phase transition. 
+            </p>
+            <img src="particle.png" class="image" id="image1">
+            <img src="Voronoi.png" class="image" id="image2">
+        </div>
+        <div class="box" id="proj2">
+            <h3>Differential growth in a Colloidal System</h3>
+            <br>
+            <p class="text1">
+                The goal of this project, in the summer of 2023, was to
+                use colloidal systems to understand crystal structures, specifically looking
+                FCC crystals and their structure at boundaries. Our basic philosophy was relatively
+                simple: to identify whether two crystals would grow at different rates. Given two crystals
+                growing adjacently, the boundary between the crystals will begin to "tilt" towards the higher
+                density crystal as it will take less volume than the other. Thus, it makes sense for two crystals
+                of different density to have this "tilt" at the boundary, so we looked at whether an identical crystal
+                at a different orientation would cause any differential growth.<br>
+                <br>
+                While it would be most obvious for two crystals of the same density to grow at the same rate, we observed 
+                that varying the orientation between two identical crystals, we noticed a tilt at the boundary, indicating 
+                that the growth between the crystals is different. We had several more trials, all of which had similar 
+                results, where the tilt of the boundary was between 51-56 degrees relative to the xy-plane. We presume 
+                there is some interaction between the particles at the boundary where the high layer density of one orientation 
+                causes particles to shift to the higher density since particles will always try to pack closely.
+            </p>
+            <img src="tilt.png" class="image" id="image3">
+            <img src="fcc.png" class="image" id="image4">
+        </div>
+        <div class="box" id="proj3">
+            <h3>TaskBird, a task management web application</h3>
+            <br>
+            <p class="text1">
+                The goal of this project was to create an web application that focused on task management with the 
+                special feature of connecting and overlaying a personal google calendar. The home page of this webstie acts
+                as the hub of all the elements as both calendar page elements and TODO list elements are shown. The calendar page
+                uses the google calendar API to create a TaskBird calendar/check if a TaskBird Calendar exists in your personal
+                account and then gives you options to view, add, or delete events on any sepcififed day. The TODO page gives a simple 
+                list that allows the user to create an event/task to complete with a certain level of urgency. This list is 
+                ordered by the specified urgency and once a task is completed, you have an identical list below with the completed 
+                tasks. Using the browser cookies, I have all the tasks, both in the TODO list and completed list, saved within the
+                browser memory, which can be easily cleared with a given button. For the home page, we use this saved memory 
+                to overlay all the tasks in the TODO list into a simple block. Additionally, we simply accessed the google calendar
+                again and let the user view it through the home page, but not give the options for edits. The last part of the
+                website is a template for a future feature, where users will be able to either post their own profile for
+                advertising professional level skills and other users can contact these "professionals" to learn their skills
+                for a specific price.
+                <br>
+                <br>
+                
+            </p>
+            <img src="homepage.png" class="image" id="image3">
+            <img src="todo.png" class="image" id="image4">
+        </div>
+    </div>
+    
+    <script>
+        var navOpen = false;
+        function toggleNav() {
+            if(!navOpen){
+                document.querySelector('.nav-bar').style.width = '250px';
+                document.querySelector('.container').style.marginLeft = '250px';
+                document.querySelector('.menu-btn').classList.add('active');
+                navOpen = true;
+            }else{
+                document.querySelector('.nav-bar').style.width = '0';
+                document.querySelector('.container').style.marginLeft= '0';
+                document.querySelector('.menu-btn').classList.remove('active');
+                navOpen = false;
+            }
+        }
+    </script>
+
+</body>
+</html>
