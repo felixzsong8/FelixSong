@@ -13,9 +13,9 @@
             align-items: flex-start; /* Align content to the top */
             min-height: 100vh;
             min-width: 1150px;
-            background: linear-gradient(to bottom, purple, rgb(255, 128, 0));
+            background: rgb(248, 231, 201);
             font-family: 'Didot', serif;
-            color: white;
+            color: black;
         }
 
         .container {
@@ -33,45 +33,56 @@
             position: relative; /* Set position to relative for contained absolute positioning */
         }
 
-        #proj1, #proj2, #proj3 {
+        #proj1, #proj2, #proj3, #proj4, #proj5, #proj6 {
             font-size: 1.2rem;
             border: 2px solid black;
             padding: 25px;
             border-radius: 20px;
             position: relative; /* Set position to relative for contained absolute positioning */
+            background-color: rgb(246, 244, 244);
         }
 
         .text1 {
-            width: 50%;
+            width: 55%;
             font-size: 14px;
         }
 
         .image {
             position: absolute;
             max-width: 30%;
-            left: 70%;
+            left: 80%;
             height: auto;
         }
 
-        #image1 {
-            top: 120px;
+        #image1, #image3, #image5, #image7, #image9, #image11 {
+            top: 100px;
             transform: translateX(-50%);
         }
 
-        #image2 {
+        #image2, #image4, #image6, #image8, #image10, #image12 {
+            top: 290px;
+            transform: translateX(-50%);
+        }
+        #image1, #image2, #image3, #image4 {
+            width: 260px;
+        }
+
+        #image7, #image8 {
+            width: 200px;
+        }
+        #image8 {
+            top: 300px;
+        }
+        #image9 {
+            width: 230px;
+        }
+        #image10 {
             top: 320px;
-            transform: translateX(-50%);
+        }
+        #image11, #image12 {
+            width: 250px;
         }
 
-        #image3 {
-            top: 120px;
-            transform: translateX(-50%);
-        }
-
-        #image4 {
-            top: 320px;
-            transform: translateX(-50%);
-        }
 
         a {
             color: white;
@@ -96,7 +107,7 @@
         .menu-icon {
             width: 30px;
             height: 3px;
-            background-color: white;
+            background-color: black;
             margin: 6px 0;
             transition: 0.4s;
         }
@@ -117,7 +128,7 @@
         .nav-bar a {
             padding: 15px;
             text-decoration: none;
-            font-size: 20px;
+            font-size: 1.5vw;
             color: white;
             display: block;
             transition: 0.3s;
@@ -157,6 +168,48 @@
     
     <div class="container">
         <h1>Research Projects</h1>
+        <div class="box" id="proj5">
+            <h3>Single Particle Diffusion on Templated Surfaces</h3>
+            <br>
+            <p class="text1">
+                The goal of this project was to understand the mechanism of colloidal crystal growth, specifically in regards to a
+                previous project where we observed different rates of growth for two identical materials of different orientations.
+                Colloids are important materials for understanding particle interactions as they are large enough to accurately observe 
+                under quality microscopes, but also obey properties of much smaller particles. Specifically, we were interested in
+                the diffusion of particles along the surface of a crystal. While building a clean monolayer of crystal is a relatively
+                difficult, we had access to extremely-fine templates that copied the structure of a FCC crystal. For my project, we had
+                to dilute a silica solution until it was thin enough to ensure no particles would interact with any other. Then, we 
+                imaged the particles diffusing on the template at more than 100 frames per second, and created software to track particles
+                and their trajectory over the imaging duration. At these high framerates, we could calculate both diffusion with small 
+                and large steps, which gave us insight into how often each particle moved between each crystal section. From there, we 
+                calculated the diffusion coefficient and other metrics that showed up characteristics of the particle movement. Comparing
+                the particle diffusions on different templates supported our findings in the previous project. It was fruitful work to
+                see the time and effort I had put into this project as a whole ended with a thorough explanation of our observations. 
+            </p>
+            <img src="part1.png" class="image" id="image9">
+            <img src="part2.png" class="image" id="image10">
+        </div>
+        <div class="box" id="proj6">
+            <h3>Non-invasive method for Analyzing Brain Structure in Neurodegenerative Diseases</h3>
+            <br>
+            <p class="text1">
+                The goal of this project was to create a non-invasive method to analyze the neural structure of the brain.
+                Since the brain is the most essential part of the human anatomy, its crucial we understands its strcutre.
+                Specifically, neurodegenerative diseases affect several millions world wide, so we are building a method 
+                that can identify early signs of neurodegenerative diseases. By identifying it early, we can save many people,
+                some of which may have not even known they were at risk. Using the fact that the brain is composed 75 percent of 
+                water, we look at the diffusion of water particles inside of the brain. Since the presence of a neurodegenerative 
+                disease would affect axons, as they would begin to "bead", we can search for any patterns in the diffusion that 
+                would reflect geometrical changes in the axon. This project started with the MIT think competition and creating 
+                an axon simulation where the axons were rectangular prisms and the beaded axons were just larger rectangles. Now we
+                have worked with MGH to analyze real axon data and use our algorithm to analyze the diffusion patterns among both 
+                normal and beaded axons. We hope this research can lead to better health technqiues that will directly support
+                those who are at rist for neurodegenerative diseases. I personally have had family affected by neurodegenerative diseases
+                and I want to make a better and safer world for people like them.
+            </p>
+            <img src="ax1.png" class="image" id="image11">
+            <img src="ax2.png" class="image" id="image12">
+        </div>
         <div class="box" id="proj1">
             <h3>Identification of Crystals in Liquid to Solid Transition</h3>
             <br>
@@ -191,8 +244,7 @@
                 growing adjacently, the boundary between the crystals will begin to "tilt" towards the higher
                 density crystal as it will take less volume than the other. Thus, it makes sense for two crystals
                 of different density to have this "tilt" at the boundary, so we looked at whether an identical crystal
-                at a different orientation would cause any differential growth.<br>
-                <br>
+                at a different orientation would cause any differential growth.
                 While it would be most obvious for two crystals of the same density to grow at the same rate, we observed 
                 that varying the orientation between two identical crystals, we noticed a tilt at the boundary, indicating 
                 that the growth between the crystals is different. We had several more trials, all of which had similar 
@@ -223,10 +275,34 @@
                 for a specific price.
                 <br>
                 <br>
-                
             </p>
-            <img src="homepage.png" class="image" id="image3">
-            <img src="todo.png" class="image" id="image4">
+            <img src="homepage.png" class="image" id="image5">
+            <img src="todo.png" class="image" id="image6">
+        </div>
+        <div class="box" id="proj4">
+            <h3>Understanding affinity between condensates and probe particles</h3>
+            <br>
+            <p class="text1">
+                It's commonly believed that most crucial aspects within cells are determined through an organized 
+                system of lipid bilayer covered organelles, such as the nucleus mitochondria, and endoplasmic reticulum,
+                and the rest of the cell is filled with cytoplasm and unordered proteins. However, recent discoveries
+                and insight suggest that membraneless organelles known as biomolecular condensates play a much bigger 
+                role within cells. My research was focused on understanding how probe particles interact with the condensate 
+                boundary, specifically how adding a polymer layer to the probe particle or adjusting the size of the probe particle
+                could impact the particle's ability to penetrate the condensate boundary. We used polyadenylic acid RNA (PolyA) for the basis of our condensate,
+                which is a string of RNA with a chain of adenine nucleotides attached to the end. Additionally, we attached 
+                polyethylene glycol (PEG) particles, which act as a crowding agent inside of the condensate, changing its formation.
+                For the probe particles, we used a neutral particle coated in PEG, with the theory that by coating the probe particle
+                in the same material as the crowding agent inside of the condensate, it would have a higher probability of moving 
+                inside of the condensate. Over the ten weeks, I was given the opportunity to present my research at the REU
+                poster session and present to my entire lab. It was an invaluable first experience in the research field and
+                fueled my motivation to pursue research as a career.
+
+                <br>
+                <br>
+            </p>
+            <img src="con2.png" class="image" id="image7">
+            <img src="con1.png" class="image" id="image8">
         </div>
     </div>
     
@@ -234,8 +310,8 @@
         var navOpen = false;
         function toggleNav() {
             if(!navOpen){
-                document.querySelector('.nav-bar').style.width = '250px';
-                document.querySelector('.container').style.marginLeft = '250px';
+                document.querySelector('.nav-bar').style.width = '10vw';
+                document.querySelector('.container').style.marginLeft = '10vw';
                 document.querySelector('.menu-btn').classList.add('active');
                 navOpen = true;
             }else{
