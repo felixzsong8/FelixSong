@@ -10,50 +10,47 @@
             padding: 0;
             height: 100vh;
             display: flex;
-            justify-content: left;
+            justify-content: center;
             align-items: center;
-            background: linear-gradient(to right, purple, orange);
+            background: rgb(248, 231, 201);
             font-family: 'Didot', serif;
             color: white;
         }
 
         .container {
-            position: absolute;
-            width: 60%;
-            height: 100%;
-            right: 20%;
-            top: 50%; /* Adjusted to 50% */
-            transform: translateY(-50%); /* Adjusted to center vertically */
-            text-align: center; /* Center text horizontally */
-            transition: margin-left 0.5s;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            gap: 30px;
+            transition: margin-left 0.5s ease; /* Smooth transition when shifting */
         }
 
-        .button-container {
-            margin-top: 20px;
-        }
-
-        .get-to-know-button {
-            padding: 15px;
+        .circle {
+            width: clamp(100px, 20vw, 300px);
+            height: clamp(100px, 20vw, 300px);
+            border-radius: 50%;
             background-color: #111;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 1rem;
+            transition: transform 0.3s, background-color 0.3s;
         }
 
-        .get-to-know-button:hover {
+        .circle:hover {
+            transform: scale(1.1);
             background-color: #555;
         }
 
-        .about-me {
-            background-color: #111;
-            color: white;
-            padding: 20px;
-            margin-top: 20px;
+        .circle a {
+            color: yellow;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .circle a:hover {
+            color: orange;
         }
 
         .menu-btn {
@@ -69,7 +66,7 @@
         .menu-icon {
             width: 30px;
             height: 3px;
-            background-color: white;
+            background-color: black;
             margin: 6px 0;
             transition: 0.4s;
         }
@@ -81,8 +78,8 @@
             z-index: 1;
             overflow-x: hidden;
             background-color: #111;
-            padding-top: 00px;
-            transition: 0.5s;
+            padding-top: 0;
+            transition: width 0.5s ease; /* Smooth transition when expanding */
             left: 0%;
             top: 10%;
         }
@@ -90,7 +87,7 @@
         .nav-bar a {
             padding: 15px;
             text-decoration: none;
-            font-size: 20px;
+            font-size: 1.5vw;
             color: white;
             display: block;
             transition: 0.3s;
@@ -129,13 +126,9 @@
     </div>
 
     <div class="container">
-        <div class="button-container">
-            <div class="about-me" id="aboutMeText">
-                <p> Hi, I'm Felix Song
-
-                </p>
-            </div>
-        </div>
+        <div class="circle">Email: <br> felixzsong@gmail.com</div>
+        <div class="circle">Linkedin: <br> <a href="https://www.linkedin.com/in/felix-song-6b4522260/" target="_blank">Felix Song</a></div>
+        <div class="circle">Instagram: <br> @felixzsong </div>
     </div>
 
     <script>
@@ -143,8 +136,8 @@
 
         function toggleNav() {
             if (!navOpen) {
-                document.querySelector('.nav-bar').style.width = '250px';
-                document.querySelector('.container').style.marginLeft = '250px';
+                document.querySelector('.nav-bar').style.width = '10vw';
+                document.querySelector('.container').style.marginLeft = '10vw';
                 document.querySelector('.menu-btn').classList.add('active');
                 navOpen = true;
             } else {
