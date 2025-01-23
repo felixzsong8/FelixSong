@@ -3,58 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Navigation</title>
+    <title>About</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
-            height: 100vh;
+            margin-top: 40px; 
+            margin-bottom: 40px; 
             display: flex;
-            justify-content: left;
+            justify-content: center;
             align-items: center;
-            background: linear-gradient(to right, purple, orange);
+            background: rgb(248, 231, 201);
             font-family: 'Didot', serif;
-            color: white;
+            color: black;
         }
 
         .container {
-            position: absolute;
-            width: 60%;
-            height: 100%;
-            right: 20%;
-            top: 50%; /* Adjusted to 50% */
-            transform: translateY(-50%); /* Adjusted to center vertically */
-            text-align: center; /* Center text horizontally */
-            transition: margin-left 0.5s;
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Stack the boxes vertically */
+            justify-content: center;
             align-items: center;
+            gap: 30px;
+            transition: margin-left 0.5s ease;
+            margin-top: 0; /* Reset any margin that might be added automatically */
         }
 
-        .button-container {
-            margin-top: 20px;
-        }
-
-        .get-to-know-button {
-            padding: 15px;
-            background-color: #111;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.3s;
-        }
-
-        .get-to-know-button:hover {
-            background-color: #555;
-        }
-
-        .about-me {
-            display: none;
-            background-color: #111;
-            color: white;
+        .box {
+            width: 800px; /* Increase max size to 500px */
+            border-radius: 20px;
+            background-color: rgb(246, 244, 244);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 1rem;
+            transition: transform 0.3s;
             padding: 20px;
-            margin-top: 20px;
+        }
+
+        .box a {
+            color: yellow;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        h2 {
+            margin-top: 0; /* Remove any default margin */
+            color: black;
+        }
+
+        h2:first-of-type {
+            margin-top: 0; /* Ensures no space between the top of the page and first header */
         }
 
         .menu-btn {
@@ -70,7 +68,7 @@
         .menu-icon {
             width: 30px;
             height: 3px;
-            background-color: white;
+            background-color: black;
             margin: 6px 0;
             transition: 0.4s;
         }
@@ -82,8 +80,8 @@
             z-index: 1;
             overflow-x: hidden;
             background-color: #111;
-            padding-top: 00px;
-            transition: 0.5s;
+            padding-top: 0;
+            transition: width 0.5s ease;
             left: 0%;
             top: 10%;
         }
@@ -91,7 +89,7 @@
         .nav-bar a {
             padding: 15px;
             text-decoration: none;
-            font-size: 20px;
+            font-size: 1.5vw;
             color: white;
             display: block;
             transition: 0.3s;
@@ -130,45 +128,161 @@
     </div>
 
     <div class="container">
-        <div class="button-container">
-            <button class="get-to-know-button" onclick="getToKnowMe()">Get to know me</button>
-            <div class="about-me" id="aboutMeText">
-                <p> Hi, I'm Felix Song
-                    <br> <br>
-                    I was born in Ridgefield Connecticut, but I've grown up mostly in Newton Massachusettes, where
-                    my family and I currently reside. As a child, I was always curious about nature and science, 
-                    influenced by my parents who both aquired PhDs in STEM fields.
-                    <br><br>
-                    Throughout my K-12 education, I've always been interested in pursuing a career in STEM. Not only
-                    do I beleive that understanding the natural laws of the universe give one insight in almost
-                    all walks of life, but to simplify the complexities of life was fun. As a kid, we take a lot for granted
-                    and we don't bother to understand many phenomena. Speeding up as you sled down a hill, why your arm gets red around a scratch
-                    or why hot chocolate feels so good in the winter snow. All of the these random happening can be explained Through
-                    science and as a grew older, I felt more and more inclined to know the "why" to everything. 
-                    <br><br>
-                    Outside of academics, I have several hobbies that I have given me meaningful experiences that help me
-                    connect to others and share persepctive. I loved atheltics as a kid and still to this day as I feel its 
-                    just as important to maintain good health as it is to grow our knowledge to fulfill our dreams and aspirations.
-                    From the ages of seven to seventeen, I swam on a local YMCA and Club team (Charles River Aquatics), 
-                    competing in both local and USA meets. While it was time consuming, painful, and stressful at times,
-                    I wouldn't be the person who I am today as overcoming the many difficulties that came with swimming made
-                    me stronger and more disiplined as a person. This culminated in high school where I was given the oppurtunity to
-                    be captain of my swim team and lead us to our best palcement in the state championship meet that we had 
+        <h2>Early life</h2>
+        <div class="box">
+            <p> 
+                I was born in Connecticut, but I've grown up mostly in Boston, Massachusetts. As a child, 
+                I was always curious about nature and science, influenced by my parents who both acquired PhDs in STEM fields.
+                <br><br>
+                Throughout my K-12 education, I've always been interested in pursuing a career in STEM. Not only
+                do I believe that understanding the natural laws of the universe give one insight in almost
+                all walks of life, but to simplify the complexities of life was fun. As a kid, we take a lot for granted
+                and we don't bother to understand many phenomena. Speeding up as you sled down a hill, why your arm gets red around a scratch
+                or why hot chocolate feels so good in the winter snow. All of the these random happenings can be explained through
+                science and as I grew older, I felt more and more inclined to know the "why" to everything. 
+                <br><br>
+                Through high school, I found myself gravitating towards science as both the subject itself and the
+                people involved in the field interested me. Watching Bill Nye seemingly control lightning like a superhero
+                seemed like the obvious person to look up to. In chemistry, we mixed different materials to produce a wide 
+                variety of fun reactions, like green flames or viscous liquids. In biology, we went on trips into the forest
+                to look at different plant life and how our ecosystem operated, both on a macroscopic and microscopic level.
+                However, I was most interested in physics, where we made toy cars and sent them down ramps to learn 
+                about velocity and friction.
+            </p>
+        </div>
+        <h2>University</h2>
+        <div class="box">
+            <p>
+                For the past four years, I've been attending Tufts University, majoring in Physics with minors in 
+                Mathematics and Computer Science. In my experience, the support and high quality of education
+                at Tufts has produced a skill set with real-world applications. In the first two years of my
+                undergraduate education, I filled my class schedule with several foundational and high level
+                physics and math courses, spanning from Quantum physics to relativistic E&M and multivariable calculus to
+                mathematical data analysis. As I continued my studies, I realized the important role that computers
+                have and will play in our development of science, so I decided to additionally pursue a minor in 
+                computer science. In that time, I've learned how computers are utilized in experimental physics and
+                data science, two fields I would love to pursue in the future. 
+                <br><br>
 
-
-
-                </p>
-            </div>
+            </p>
+        </div>
+        <h2>Research Experience</h2>
+        <div class="box">
+            <p>
+                In the summer of 2021 after I graduated high school, I connected with a graduate student, Zsolt Terdik, 
+                to learn how the process of research worked. Since I was a high school student, he knew that I would have
+                to learn from the ground up. Focusing on foundational skills, I researched lots of physics and mathematical
+                theory, ranging from fourier transforms to monte carlo systems. After that, Zsolt gave me a project to understand
+                and implement a denoising algorithm into our lab computer to use for future analysis. I was able to successfully 
+                implement in on my own mac computer so I thought it would be no problem on the lab computer. Subsequently, I spent
+                50 hours of my summer vacation in the lab trying to figure out a linux system. At the end of my summer, I was still
+                unsuccessful in a finished installation as my unexperience in linux systems and fear of damaging the computer kept 
+                me from completing my first project. While I spent some time dissapointed in myself, I look back on that experience
+                and I am thankful I failed. It put a burning passion in me to strive for success and look at problems from many
+                different persepctives, and I continued to uphold these values in my future project.
+                <br><br>
+                In the summer of 2022, I was selected for the Harvard 2022 Research Experiences for Undergraduates (REU) 
+                program at the School of Engineering and Applied Sciences (SEAS). The SEAS REU program was a 10-week program built
+                for inquisitive students to learn and develop research skills, guided by some of the brightest minds in America. 
+                I was fortunate to work in both the Weitz Lab and Spaepen Lab, which focused on the physical properties of 
+                a diverse set of materials, from cell structure to crystal lattices. I chose a project centered around 
+                biomolecular condensates, a biological structure that act as compartment in several cellular process. Given it was
+                my first experience in a wetlab research setting, it had to tackle several new challenges and a fair share of setbacks.
+                We were researching the best method to implement microrheology on our condensates, using particle movements to map the structure of
+                condensates, as previous methods were invasive. We used a polymer coating and varied the size of the probing 
+                particles to see whether the probing particle could penetrate the outside layer of the condensate through
+                purely non-human mechanical action. Through my ten week experience, I was able to learn not only how to conduct research,
+                but also how to document research, which I realized was nearly just as important. 
+                <br><br>
+                In the summer of 2023, I was excited to return to the REU SEAS program and build on the skills I had 
+                learned in the previous summer. My new project was centered around crystal structure and epitaxy. 
+                Its understandable that two crystals of different density would grow at different rates under the same forces
+                and the same flux of crystal particles. However, what we were interested in was how two crystals of the same
+                density but differing orientation would grow adjacent to each other. In this process, growing crystals 
+                under gravitational force took several hours, so it became crucial for me to plan my time and experiments 
+                efficiently. We found that one crystal orientation consistently grew faster than the other, and I presented
+                these findings at the 97th New England Complex Fluids Conference. I additionally did another project on 
+                computational methods for identification of crystal structures, specifically looking for small crystal structures
+                appearing during phase transitions. Using the geometry of the Voronoi Cell surrounding each crystal particle,
+                we were able to create a working algorithm that could identify clusters of crystal particles. 
+                <br><br>
+                In the summer of 2024, I wanted to continue my previous summer's research and participate in other research involving 
+                computational physics in biological systems. In regards to the crystal research project, I pushed to understand
+                what was the mechanism behind the differential growth rates as it had been unclear to why our findings were such.
+                We analyzed single particle diffusion on different templated surfaces to emulate crystal growth on crystal faces. Then,
+                using particle tracking techniques and analyzing the diffusion of all particles, we saw clear differences on
+                the diffusion rates for each template. Discussing and learning from my mentor and other PhD students in the lab
+                was tremendous for my interest and desire to continue research. To these ends, I also pursued a project centering around 
+                developing a non-invasive technique for mapping the structure of the brain. Specifically observing the brownian motion
+                of a water particle in the brain to analyze each axon. This started with simple simulated axons and moved to 
+                working with real sample data provided by MGH and more complex simulations. I believe that physics, in tandem with 
+                computational power, can have an amazing impact on our society and I would love to be at the forefront of that.
+            </p>
+        </div>
+        <h2>Hobbies and Interests</h2>
+        <div class="box">
+            <p>
+                Outside of academics, I have several hobbies that I have given me meaningful experiences, helping me
+                connect to others and share perspectives. I loved athletics as a kid and to this day, as I feel its 
+                just as important to maintain good health as it is to grow our knowledge to fulfill our dreams and aspirations.
+                From the ages of seven to seventeen, I swam on a local YMCA and Club team (Charles River Aquatics), 
+                competing in both local and USA meets. While it was time consuming, painful, and stressful at times,
+                I wouldn't be the person who I am today as overcoming the many difficulties that came with swimming made
+                me stronger and more disciplined as a person. This culminated in high school where I was given the opportunity to
+                be captain of my swim team and lead us to our best placement in the state championship meet that we had in our school's
+                history - or at least as far back as anyone could remember. After high school, I felt as though I had given swimming
+                all I could, so I switched to the polar opposite sport, volleyball. Filled with teamwork, communication, much less cardio,
+                and more pain on the knees, I began to love this new sport. For my freshman year of university, I played nearly everyday, 
+                making life long friends in the process. In line with my interest, I quickly was able to join the club volleyball team 
+                where I have been a part of for the last four years. Playing volleyball has given me some of the greatest and most exhilarating
+                moments in my life, but it hasn't come without its costs. I've dealt with recurring knee issues and I've had to learn
+                how to properly take care of myself, which sometimes includes time away from the sport I love. Sports have taught me
+                plenty of life lessons and I hope to continue learning more for the rest of my life.
+                <br><br>
+                Another interest of mine is music. I grew playing the piano, but I soon found that practicing and memorizing
+                countless classic piano songs wasn't for me, so I soon quit. In fourth grade, I would then learn how to play 
+                the alto saxophone, an instrument that represented style and creativity. I would soon lean towards playing jazz as 
+                it aligned with my style of playing music and improv became my expression for that. I continued playing into high 
+                school where our school's jazz ensemble qualified for the Mingus Big Band competition and traveled to New York to
+                compete. In college, every spring I've played with some Jazz group, with the same interest in meeting new people
+                with a similar passion for music and developing my own skills. Throughout the years, I've also learned the basics
+                for guitar, ukulele, trumpet, flute, drums, and even some singing. 
+                <br><br> 
+                Some other hobbies of mine include: cooking, swimming, and learning new skills. My mom's cooking will always remain 
+                undefeated, but I think I emulate her cooking 
+                somewhat successfully. As a combination of making that I personally like to eat and saving money, cooking has become a
+                central part of my life. Similarly, swimming was such a big part of my life that every now and then, I love to 
+                hop back into the pool. Lastly, I think learning new skills, as a general statement, is an amazing thing. Whether its
+                learning how to juggle a soccer ball or learning where to invest in the stock market, I believe learning new skills
+                has broadened my perspective on several different facets of life.
+            </p>
+        </div>
+        <h2>Volenteering and Community Help</h2>
+        <div class="box">
+            <p>
+                I believe everyone should, in one way or another, give back to your community. Whether thats helping build new
+                real estate, providing food for those in need, or supporting local businesses, your community will always
+                be yours. I spent several years working with OptiNeeds, a non-profit organization centered around helping special needs
+                athletes by proving free prescription eyewear. We went to many different conferences and helped many athletes. I was
+                very meaningful to see how happy some of the athletes were with their new swim goggles. I've also needed prescription 
+                eyewear in the past and it was so helpful for me, so I understood the impact it had for them. This experience inspired me
+                to start my own non-profit, OmniTempo. I wanted to use skills that I had learned to help my community, so I based OmniTempo
+                around proving music, specifically jazz, to seniors who had either played music in the past or had never played before. 
+                Music has had such a big impact on my life and I knew other would feel the same. I performed and taught at senior homes and 
+                even online during the pandemic. Seeing the joy I could bring people simply through expressing my own interest in music
+                was a fantastic experience. Looking back, I hope my presense in my community uplifted and inspired poeple to pursue what they love.
+            </p>
         </div>
     </div>
+
 
     <script>
         var navOpen = false;
 
         function toggleNav() {
             if (!navOpen) {
-                document.querySelector('.nav-bar').style.width = '250px';
-                document.querySelector('.container').style.marginLeft = '250px';
+                document.querySelector('.nav-bar').style.width = '10vw';
+                document.querySelector('.container').style.marginLeft = '10vw';
                 document.querySelector('.menu-btn').classList.add('active');
                 navOpen = true;
             } else {
@@ -177,11 +291,6 @@
                 document.querySelector('.menu-btn').classList.remove('active');
                 navOpen = false;
             }
-        }
-
-        function getToKnowMe() {
-            var aboutMeText = document.getElementById('aboutMeText');
-            aboutMeText.style.display = 'block';
         }
     </script>
 
