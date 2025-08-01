@@ -6,22 +6,64 @@
     <title>Responsive Navigation</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgb(248, 231, 201);
-            font-family: 'Didot', serif;
-            color: white;
-        }
+      margin: 0;
+      padding: 0;
+      background: rgb(215, 231, 210);
+      font-family: 'Didot', serif;
+      color: black;
+      min-width: 1150px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-bar {
+      width: 100%;
+      height: 70px;
+      background-color: rgb(215, 231, 210);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    .nav-left {
+      font-size: 1.5rem;
+      color: black;
+      text-decoration: none;
+    }
+
+    .nav-left:hover {
+      color: rgb(149, 0, 255);
+    }
+
+    .nav-right {
+      padding-right: 100px;
+      color: black;
+    }
+
+    .nav-right a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: black;
+      margin-left: 30px;
+      transition: 0.3s;
+    }
+
+    .nav-right a:hover {
+      color: rgb(149, 0, 255);
+    }
 
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 30px;
+            padding-top: 200px;
+            color: white;
             transition: margin-left 0.5s ease; /* Smooth transition when shifting */
         }
 
@@ -53,77 +95,24 @@
             color: orange;
         }
 
-        .menu-btn {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            cursor: pointer;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-        }
 
-        .menu-icon {
-            width: 30px;
-            height: 3px;
-            background-color: black;
-            margin: 6px 0;
-            transition: 0.4s;
-        }
+        
 
-        .nav-bar {
-            height: 90%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            overflow-x: hidden;
-            background-color: #111;
-            padding-top: 0;
-            transition: width 0.5s ease; /* Smooth transition when expanding */
-            left: 0%;
-            top: 10%;
-        }
-
-        .nav-bar a {
-            padding: 15px;
-            text-decoration: none;
-            font-size: 1.5vw;
-            color: white;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .nav-bar a:hover {
-            background-color: #555;
-        }
-
-        .menu-btn.active .menu-icon:nth-child(1) {
-            transform: rotate(-45deg) translate(-15px, 6px);
-        }
-
-        .menu-btn.active .menu-icon:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-btn.active .menu-icon:nth-child(3) {
-            transform: rotate(45deg) translate(-15px, -6px);
-        }
     </style>
 </head>
 <body>
 
-    <div class="menu-btn" onclick="toggleNav()">
-        <div class="menu-icon"></div>
-        <div class="menu-icon"></div>
-        <div class="menu-icon"></div>
-    </div>
-
     <div class="nav-bar">
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="research.html">Research</a>
-        <a href="contact.html">Contact</a>
-    </div>
+        <a href="home.html" class="nav-left">Felix Song</a>
+        <div class="nav-right">
+          <a href="about.html">About</a>
+          <a href="research.html">Research</a>
+          <a href="CV.html">CV</a>
+          <a href="Transcript.html">Transcript</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+    
 
     <div class="container">
         <div class="circle">Email: <br> felixzsong@gmail.com</div>

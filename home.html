@@ -1,250 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Navigation</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            min-width: 1150px;
-            background: rgb(248, 231, 201);
-            font-family: 'Didot', serif;
-            color: black;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Top Navigation</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: rgb(215, 231, 210);
+      font-family: 'Didot', serif;
+      color: black;
+      min-width: 1150px;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .container {
-            margin-top: 100px;
-            max-width: 800px;
-            width: 90%;
-            text-align: center;
-            font-size: 1.2rem;
-            transition: margin-left 0.5s;
-        }
+    .nav-bar {
+      width: 100%;
+      height: 70px;
+      background-color: rgb(215, 231, 210);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
 
-        .box {
-            margin-bottom: 20px;
-            background-color: transparent;
-            position: relative; /* Add this */
-        }
+    .nav-left {
+      font-size: 1.5rem;
+      color: black;
+      text-decoration: none;
+    }
 
-        #intro {
-            width: 50%;
-            text-align: left;
-            font-size: 1.4rem;
-            line-height: 1.5;
-        }
+    .nav-left:hover {
+      color: rgb(149, 0, 255);
+    }
 
-        .image1 {
-            /* Adjusted positioning */
-            position: absolute;
-            width: 450px;
-            top: 0px; /* Change this to 0 */
-            left: 500px; /* Change this to 0 */
-            min-width: 10%;
-            height: auto;
-            margin-top: 20px;
-            border-radius: 100px;
-        }
+    .nav-right {
+      padding-right: 100px;
+      color: black;
+    }
 
-        #intro h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+    .nav-right a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin-left: 30px;
+      transition: 0.3s;
+    }
 
-        #about {
-            font-size: 1.2rem;
-            margin-top: 400px;
-        }
+    .nav-right a:hover {
+      color: rgb(149, 0, 255);
+    }
 
-        #clickable {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 200px;
-            font-size: 1rem;
-        }
+    .container {
+      flex: 1;
+      display: flex;
+      color: white;
+      background: url('background1.png') no-repeat center center;
+      background-size: cover;
+      flex-direction: column;
+      justify-content: left;
+      align-items: left;
+      text-align: left;
+      padding-top: 250px;
+      padding-left: 80px;
+    }
 
-        #template, #contact {
-            width: 48%;
-            border: 2px solid rgb(156, 154, 154);
-            padding: 20px;
-            border-radius: 20px;
-            box-sizing: border-box;
-        }
+    .box {
+      margin-bottom: 40px;
+      background-color: transparent;
+      position: relative;
+    }
 
-        a {
-            color: black;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+    #intro {
+      width: 50%;
+      text-align: left;
+      font-size: 1.4rem;
+      line-height: 1.5;
+      position: relative;
+    }
 
-        a:hover {
-            color: rgb(149, 0, 255);
-        }
+    #intro h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
 
-        .menu-btn {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            cursor: pointer;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-        }
+    #clickable {
+      display: flex;
+      margin-bottom: 0;
+      justify-content: center;
+      gap: 40px;
+      text-align: center;
+      align-items: center;
+      font-size: 1rem;
+      width: 100%;
+      height: 450px;
+      background-color: rgb(215, 231, 210);
+    }
 
-        .menu-icon {
-            width: 30px;
-            height: 3px;
-            background-color: black;
-            margin: 6px 0;
-            transition: 0.4s;
-        }
+    #template, #contact {
+      width: 35%;
+      padding: 20px;
+      box-sizing: border-box;
+      background-color: rgb(247, 238, 238);
+      border: none;
+      border-radius: 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
 
-        .nav-bar {
-            height: 100vh;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            overflow-x: hidden;
-            background-color: #111;
-            padding-top: 20px;
-            transition: 0.5s;
-            left: 0;
-            top: 80px;
-        }
+    .info-box {
+      width: 100%;
+      background-color: rgb(215, 231, 210);
+      padding: 50px 15%;
+      box-sizing: border-box;
+    }
 
-        .nav-bar a {
-            padding: 15px;
-            text-decoration: none;
-            font-size: 1.5vw;
-            color: white;
-            display: block;
-            transition: 0.3s;
-        }
+    .info-box h2 {
+      margin-top: 0;
+      font-size: 2rem;
+      text-align: center;
+    }
 
-        .nav-bar a:hover {
-            background-color: #555;
-        }
+    .info-box h3 {
+      text-align: center;
+      margin-top: 0;
+      font-weight: normal;
+      color: #555;
+    }
 
-        .menu-btn.active .menu-icon:nth-child(1) {
-            transform: rotate(-45deg) translate(-15px, 6px);
-        }
+    .info-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
 
-        .menu-btn.active .menu-icon:nth-child(2) {
-            opacity: 0;
-        }
+    .info-text {
+      width: 55%;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
 
-        .menu-btn.active .menu-icon:nth-child(3) {
-            transform: rotate(45deg) translate(-15px, -6px);
-        }
-        @media only screen and (max-device-width: 1300px) {
-            .image1 {
-                min-width: 500px;
-            }
-        }
+    .info-image {
+      width: 30%;
+      text-align: center;
+    }
 
-    </style>
+    .info-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+    }
+
+    #footer-box {
+      width: 100%;
+      height: 100px;
+      background-color: rgb(215, 231, 210);
+      padding: 30px;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    a {
+      color: black;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: rgb(149, 0, 255);
+    }
+
+    /* Thesis Section */
+    .thesis-box {
+      width: 100%;
+      background-color: rgb(247, 238, 238);
+      padding: 50px 15%;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    .thesis-box h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .thesis-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .thesis-text {
+      width: 55%;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .thesis-image {
+      width: 30%;
+      text-align: center;
+    }
+
+    .thesis-image img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 900px) {
+      .info-content,
+      .thesis-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .info-text, .info-image,
+      .thesis-text, .thesis-image {
+        width: 100%;
+        padding: 0;
+      }
+
+      .info-image img,
+      .thesis-image img {
+        max-width: 300px;
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+      }
+
+      #clickable {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 20px;
+      }
+
+      #template, #contact {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+
+  </style>
 </head>
 <body>
 
-    <div class="menu-btn" onclick="toggleNav()">
-        <div class="menu-icon"></div>
-        <div class="menu-icon"></div>
-        <div class="menu-icon"></div>
+  <!-- Navigation -->
+  <div class="nav-bar">
+    <a href="home.html" class="nav-left">Felix Song</a>
+    <div class="nav-right">
+      <a href="about.html">About</a>
+      <a href="research.html">Research</a>
+      <a href="CV.html">CV</a>
+      <a href="Transcript.html">Transcript</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="container">
+    <div class="box" id="intro">
+      <p>Hello, I'm</p> 
+      <h1>Felix Song,</h1>
+      <p>
+        an aspiring scientist and recent graduate from Tufts University.
+        I enjoy the exploration of the unknown, and I am enthusiastic about tackling
+        problems and creating innovative solutions.
+      </p>
+    </div>
+  </div>
+
+  <!-- Info Section -->
+  <div class="info-box">
+    <h2>About Me</h2>
+    <h3>BS in Physics, Minor in Computer Science and Mathematics</h3>
+    <div class="info-content">
+      <div class="info-text">
+        <p>
+          I've always been fascinated by how the world works — whether through the lens of physics, 
+          computer science, or human experience. My passion lies in taking an interdisciplinary 
+          approach that integrates physics-based modeling and data analytics with biological 
+          systems and healthcare.
+        </p>
+        <p>
+          Most recently, I graduated from Tufts in the Spring of 2025 with 
+          Summa Cum Laude honors and a High Honors Senior Thesis.
+          In the summer of 2025, I completed a training rotation at Genomes2People, 
+          where I gained foundational knowledge in genomics and explored advances in computational 
+          biology within the field.
+        </p>
+        <p>
+          In 2022–2023, I was selected for a Research Experience for Undergraduates (REU) at 
+          the Harvard School of Engineering and Applied Sciences, where I learned from world-class 
+          mentors how to conduct research. In 2024, I continued my research at Harvard on a 
+          project supported by MGH specialists, 
+          focused on the non-invasive detection of early signs of neurodegenerative diseases.
+        </p>
+      </div>
+      <div class="info-image">
+        <img src="profile.png" alt="Science themed image">
+      </div>
+    </div>
+  </div>
+
+  <!-- Clickable Section -->
+  <div class="box" id="clickable">
+    <div id="template">
+      <p>If I had 50 words to describe who I am, I would say</p>
+      <p>
+        I'm an adventurous soul who looks to create memories with 
+        those around me because I believe that not trying is 
+        worse than failing. I've read books on the structure of 
+        the universe, led discussions with inquisitive minds, and traveled to 
+        different countries to further broaden my perspective of the world.
+      </p>
+      <a href="about.html">To learn more about me, click here</a>
     </div>
 
-    <div class="nav-bar">
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="research.html">Research</a>
-        <a href="contact.html">Contact</a>
+    <div id="contact">
+      To contact me at my email or phone number, please refer to the 
+      link below and I will get back to you as soon as possible. <br><br>
+      <a href="contact.html">To contact me, click here</a>
     </div>
-    
-    <div class="container">
-        <div class="box" id="intro">
-            <img src="profile.png" class="image1">
-            <p>Hello, I'm</p> 
-            <h1>Felix Song,</h1>
-            <p>
-                an aspiring scientist studying at Tufts University.
-                I enjoy the exploration of the unknown, and I am enthuastic about tackling
-                problems and creating innovative solutions.
-            </p>
-        </div>
-        <div class="box" id="about">
-            <a href="research.html"><h1>Projects</h1></a>
-            <p>
-                <h3>Identification of Crystals in Liquid to Solid Transition</h3>
-                Using similated data on colloidal crystals transitioning from
-                a liquid state to a solid state, we observed changes in each particle's
-                Voronoi Cell to identiy crystallization in our system. 
-                The Voronoi Cell is the space next to a particle that is closer to that particle
-                than any other neighboring particle and its characteristics have many elements 
-                that could be analyzed to find patterns with crystallization.
-            </p>
-            <p>
-                <h3>Differential Growth in colloidal systems</h3>
-                In a monodispersed hard-sphere colloidal crystal system, 
-                we show evidence of differential growth rates between differing 
-                orientations of FCC crystals. Using confocal microscopy,
-                we can create a 3D rendering of the partlces after crystallization 
-                using visualization software and particle identification. 
-            </p>
-            <p>
-                <h3>Organzation App, TaskBird</h3>
-                I create a Web Application for the purpose to consolidate many task managment 
-                resources into one compatible website. Many people use Google Calendar, Notes app,
-                or other applications to keep tabs on their schedule, so I created an app that not only
-                connects and overlays your own google calendar, but additionally has a simple
-                To-do list, weather app, and additional features to help organize your day.
-            </p>
-            <p>
+  </div>
 
-            </p>
-        </div>
-        <div class="box" id="clickable">
-            <div id="template">
-                <p>If I had 50 words to describe who I am, I would say</p>
-                <p>
-                    I'm an adventurous soul who looks to create memories with 
-                    those around me because I believe that not trying is 
-                    worse than failing. I've read books on the structure of 
-                    the universe, led discussions with inquisitive minds, and traveled to 
-                    different countries to further broaden my perspective of the world.
-                </p>
-                <a href="about.html">To learn more about me, click here</a>
-            </div>
-            <div id="contact">
-                To conntact me at my email or phone number, please refer to the 
-                link below and I will get back to you as soon as possible. <br> <br>
-
-                <a href="contact.html">To contact me, click here</a>
-            </div>
-        </div>
+  <!-- Thesis Section -->
+  <div class="thesis-box">
+    <h2>My Senior Thesis</h2>
+    <div class="thesis-content">
+      <div class="thesis-text">
+        <p>
+          My senior thesis explored novel approaches in unfolding detector effects from 
+          high energy particle collisions. The approach utilized a conditional denoising diffusion 
+          probabilistic model, a generative AI trained to remove potential mis-information from technical  
+          bias of the detector, to reconstruct data from simulated particle collisions. This approach is 
+          then comapred to common unfolding methods, specifically bin-by-bin, matrix, and Singular Value Decomposition
+          (SVD) methods.
+        </p>
+        <p>
+          This project not only honed my technical research skills but deepened 
+          my appreciation for the whole process of creating a thesis questions, researching potential
+          solutions and previous material, developing such solutions for our project, analyzing results, 
+          and writing a comprehensive thesis. 
+        </p>
+      </div>
+      <div class="thesis-image">
+        <img src="thesis.png" alt="Thesis related image">
+      </div>
     </div>
-    
-    <script>
-        var navOpen = false;
-        function toggleNav() {
-            if(!navOpen){
-                document.querySelector('.nav-bar').style.width = '10vw';
-                document.querySelector('.container').style.marginLeft = '10vw';
-                document.querySelector('.menu-btn').classList.add('active');
-                navOpen = true;
-            }else{
-                document.querySelector('.nav-bar').style.width = '0';
-                document.querySelector('.container').style.marginLeft= '0';
-                document.querySelector('.menu-btn').classList.remove('active');
-                navOpen = false;
-            }
-        }
-    </script>
+  </div>
+
+  <!-- Footer -->
+  <div id="footer-box">
+    <h3>felixzsong@gmail.com</h3>
+    Thank you for visiting! I'm always excited to connect and collaborate. Feel free to reach out.
+  </div>
 
 </body>
 </html>

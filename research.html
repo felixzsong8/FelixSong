@@ -3,325 +3,368 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Navigation</title>
+    <title>About</title>
     <style>
         body {
             margin: 0;
-            padding: 80px 0 0 0; /* Adjust top padding to move content near the top */
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Align content to the top */
-            min-height: 100vh;
-            min-width: 1150px;
-            background: rgb(248, 231, 201);
+            padding-top: 80px;
+            background: rgb(215, 231, 210);
             font-family: 'Didot', serif;
             color: black;
-        }
-
-        .container {
-            margin-top: 20px;
-            max-width: 1000px;
-            width: 90%;
-            text-align: center;
-            font-size: 1.2rem;
-            transition: margin-left 0.5s;
-        }
-
-        .box {
-            margin-bottom: 20px;
-            background-color: transparent;
-            position: relative; /* Set position to relative for contained absolute positioning */
-        }
-
-        #proj1, #proj2, #proj3, #proj4, #proj5, #proj6 {
-            font-size: 1.2rem;
-            border: 2px solid black;
-            padding: 25px;
-            border-radius: 20px;
-            position: relative; /* Set position to relative for contained absolute positioning */
-            background-color: rgb(246, 244, 244);
-        }
-
-        .text1 {
-            width: 55%;
-            font-size: 14px;
-        }
-
-        .image {
-            position: absolute;
-            max-width: 30%;
-            left: 80%;
-            height: auto;
-        }
-
-        #image1, #image3, #image5, #image7, #image9, #image11 {
-            top: 100px;
-            transform: translateX(-50%);
-        }
-
-        #image2, #image4, #image6, #image8, #image10, #image12 {
-            top: 290px;
-            transform: translateX(-50%);
-        }
-        #image1, #image2, #image3, #image4 {
-            width: 260px;
-        }
-
-        #image7, #image8 {
-            width: 200px;
-        }
-        #image8 {
-            top: 300px;
-        }
-        #image9 {
-            width: 230px;
-        }
-        #image10 {
-            top: 320px;
-        }
-        #image11, #image12 {
-            width: 250px;
-        }
-
-
-        a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: rgb(149, 0, 255);
-        }
-
-        .menu-btn {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            cursor: pointer;
-            z-index: 2;
             display: flex;
             flex-direction: column;
-        }
-
-        .menu-icon {
-            width: 30px;
-            height: 3px;
-            background-color: black;
-            margin: 6px 0;
-            transition: 0.4s;
+            align-items: center;
         }
 
         .nav-bar {
-            height: 100vh;
-            width: 0;
+            width: 100%;
+            height: 70px;
+            background-color: rgb(215, 231, 210);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
             position: fixed;
-            z-index: 1;
-            overflow-x: hidden;
-            background-color: #111;
-            padding-top: 20px;
-            transition: 0.5s;
+            top: 0;
             left: 0;
-            top: 80px;
+            z-index: 10;
         }
 
-        .nav-bar a {
-            padding: 15px;
+        .nav-left {
+            font-size: 1.5rem;
+            color: black;
             text-decoration: none;
-            font-size: 1.5vw;
-            color: white;
-            display: block;
+        }
+
+        .nav-left:hover {
+            color: rgb(149, 0, 255);
+        }
+
+        .nav-right {
+            padding-right: 100px;
+            color: black;
+        }
+
+        .nav-right a {
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin-left: 30px;
             transition: 0.3s;
+            color: black;
         }
 
-        .nav-bar a:hover {
-            background-color: #555;
+        .nav-right a:hover {
+            color: rgb(149, 0, 255);
         }
 
-        .menu-btn.active .menu-icon:nth-child(1) {
-            transform: rotate(-45deg) translate(-15px, 6px);
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 40px;
+            box-sizing: border-box;
         }
 
-        .menu-btn.active .menu-icon:nth-child(2) {
-            opacity: 0;
+        .box {
+            width: 1000px;
+            background-color: rgb(247, 238, 238);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            font-size: 1rem;
+            padding: 20px;
+            border: none;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .menu-btn.active .menu-icon:nth-child(3) {
-            transform: rotate(45deg) translate(-15px, -6px);
+        .box img {
+            width: 350px;
+            height: auto;
+            margin-left: 20px;
+            margin-right: 20px;
         }
+        #jumbo {
+            width: 200px;
+        }
+
+        .box-content {
+            flex: 1;
+        }
+
+        .box-left {
+            flex-direction: row;
+        }
+
+        .box-right {
+            flex-direction: row-reverse;
+        }
+
+        .image-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 100px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .image-group-1 {
+            display: flex;
+            width: 300px;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .image-group-1 img {
+        width: 250px; /* Adjust size as needed */
+        height: auto;
+        }
+        .image-group-2 {
+            display: flex;
+            width: 300px;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .image-group-2 img {
+        width: 300px; /* Adjust size as needed */
+        height: auto;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: black;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+    
+
     </style>
 </head>
 <body>
 
-    <div class="menu-btn" onclick="toggleNav()">
-        <div class="menu-icon"></div>
-        <div class="menu-icon"></div>
-        <div class="menu-icon"></div>
-    </div>
-
     <div class="nav-bar">
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="research.html">Research</a>
-        <a href="contact.html">Contact</a>
+        <a href="home.html" class="nav-left">Felix Song</a>
+        <div class="nav-right">
+            <a href="about.html">About</a>
+            <a href="research.html">Research</a>
+            <a href="CV.html">CV</a>
+            <a href="Transcript.html">Transcript</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </div>
-    
-    <div class="container">
-        <h1>Research Projects</h1>
-        <div class="box" id="proj5">
-            <h3>Single Particle Diffusion on Templated Surfaces</h3>
-            <br>
-            <p class="text1">
-                The goal of this project was to understand the mechanism of colloidal crystal growth, specifically in regards to a
-                previous project where we observed different rates of growth for two identical materials of different orientations.
-                Colloids are important materials for understanding particle interactions as they are large enough to accurately observe 
-                under quality microscopes, but also obey properties of much smaller particles. Specifically, we were interested in
-                the diffusion of particles along the surface of a crystal. While building a clean monolayer of crystal is a relatively
-                difficult, we had access to extremely-fine templates that copied the structure of a FCC crystal. For my project, we had
-                to dilute a silica solution until it was thin enough to ensure no particles would interact with any other. Then, we 
-                imaged the particles diffusing on the template at more than 100 frames per second, and created software to track particles
-                and their trajectory over the imaging duration. At these high framerates, we could calculate both diffusion with small 
-                and large steps, which gave us insight into how often each particle moved between each crystal section. From there, we 
-                calculated the diffusion coefficient and other metrics that showed up characteristics of the particle movement. Comparing
-                the particle diffusions on different templates supported our findings in the previous project. It was fruitful work to
-                see the time and effort I had put into this project as a whole ended with a thorough explanation of our observations. 
-            </p>
-            <img src="part1.png" class="image" id="image9">
-            <img src="part2.png" class="image" id="image10">
-        </div>
-        <div class="box" id="proj6">
-            <h3>Non-invasive method for Analyzing Brain Structure in Neurodegenerative Diseases</h3>
-            <br>
-            <p class="text1">
-                The goal of this project was to create a non-invasive method to analyze the neural structure of the brain.
-                Since the brain is the most essential part of the human anatomy, its crucial we understands its strcutre.
-                Specifically, neurodegenerative diseases affect several millions world wide, so we are building a method 
-                that can identify early signs of neurodegenerative diseases. By identifying it early, we can save many people,
-                some of which may have not even known they were at risk. Using the fact that the brain is composed 75 percent of 
-                water, we look at the diffusion of water particles inside of the brain. Since the presence of a neurodegenerative 
-                disease would affect axons, as they would begin to "bead", we can search for any patterns in the diffusion that 
-                would reflect geometrical changes in the axon. This project started with the MIT think competition and creating 
-                an axon simulation where the axons were rectangular prisms and the beaded axons were just larger rectangles. Now we
-                have worked with MGH to analyze real axon data and use our algorithm to analyze the diffusion patterns among both 
-                normal and beaded axons. We hope this research can lead to better health technqiues that will directly support
-                those who are at rist for neurodegenerative diseases. I personally have had family affected by neurodegenerative diseases
-                and I want to make a better and safer world for people like them.
-            </p>
-            <img src="ax1.png" class="image" id="image11">
-            <img src="ax2.png" class="image" id="image12">
-        </div>
-        <div class="box" id="proj1">
-            <h3>Identification of Crystals in Liquid to Solid Transition</h3>
-            <br>
-            <p class="text1">
-                The goal of this project was to develop techniques to identify crystal growth in 
-                the transition between liquid to solid phases. Clasically, there are several methods
-                available to identify crystals, such as Q6 and topology methods. These methods mostly
-                include using a particle's distance to each of its neighboring particles to identify 
-                crystal-like particles. These methods are important and work effeciently in many systems,
-                but we were looking to identify crystal structures formed during the transition between liquid
-                and solid structures. To complete this, we looked at each particles Voronoi structure. <br>
-                <br>
-                A Voronoi Cell by definition is the space closest to a particle more so than any other neighboring particle.
-                Given a system of colloidal particles in a 3D space, this results in a polyhedral structure. With this 
-                polyhedral, we looked at many of its characteristics using a visualization software, Ovito Pro, and 
-                creating python scripts that would allow us to calculate bond angles and face degrees to identify crystal structures.
-                Comparing to other methods, both visually and raw data, we saw similarities between previous identification 
-                methods and ours, and we could identify many cases where small pockets of crystal-like structures were
-                identified during the phase transition. 
-            </p>
-            <img src="particle.png" class="image" id="image1">
-            <img src="Voronoi.png" class="image" id="image2">
-        </div>
-        <div class="box" id="proj2">
-            <h3>Differential growth in a Colloidal System</h3>
-            <br>
-            <p class="text1">
-                The goal of this project, in the summer of 2023, was to
-                use colloidal systems to understand crystal structures, specifically looking
-                FCC crystals and their structure at boundaries. Our basic philosophy was relatively
-                simple: to identify whether two crystals would grow at different rates. Given two crystals
-                growing adjacently, the boundary between the crystals will begin to "tilt" towards the higher
-                density crystal as it will take less volume than the other. Thus, it makes sense for two crystals
-                of different density to have this "tilt" at the boundary, so we looked at whether an identical crystal
-                at a different orientation would cause any differential growth.
-                While it would be most obvious for two crystals of the same density to grow at the same rate, we observed 
-                that varying the orientation between two identical crystals, we noticed a tilt at the boundary, indicating 
-                that the growth between the crystals is different. We had several more trials, all of which had similar 
-                results, where the tilt of the boundary was between 51-56 degrees relative to the xy-plane. We presume 
-                there is some interaction between the particles at the boundary where the high layer density of one orientation 
-                causes particles to shift to the higher density since particles will always try to pack closely.
-            </p>
-            <img src="tilt.png" class="image" id="image3">
-            <img src="fcc.png" class="image" id="image4">
-        </div>
-        <div class="box" id="proj3">
-            <h3>TaskBird, a task management web application</h3>
-            <br>
-            <p class="text1">
-                The goal of this project was to create an web application that focused on task management with the 
-                special feature of connecting and overlaying a personal google calendar. The home page of this webstie acts
-                as the hub of all the elements as both calendar page elements and TODO list elements are shown. The calendar page
-                uses the google calendar API to create a TaskBird calendar/check if a TaskBird Calendar exists in your personal
-                account and then gives you options to view, add, or delete events on any sepcififed day. The TODO page gives a simple 
-                list that allows the user to create an event/task to complete with a certain level of urgency. This list is 
-                ordered by the specified urgency and once a task is completed, you have an identical list below with the completed 
-                tasks. Using the browser cookies, I have all the tasks, both in the TODO list and completed list, saved within the
-                browser memory, which can be easily cleared with a given button. For the home page, we use this saved memory 
-                to overlay all the tasks in the TODO list into a simple block. Additionally, we simply accessed the google calendar
-                again and let the user view it through the home page, but not give the options for edits. The last part of the
-                website is a template for a future feature, where users will be able to either post their own profile for
-                advertising professional level skills and other users can contact these "professionals" to learn their skills
-                for a specific price.
-                <br>
-                <br>
-            </p>
-            <img src="homepage.png" class="image" id="image5">
-            <img src="todo.png" class="image" id="image6">
-        </div>
-        <div class="box" id="proj4">
-            <h3>Understanding affinity between condensates and probe particles</h3>
-            <br>
-            <p class="text1">
-                It's commonly believed that most crucial aspects within cells are determined through an organized 
-                system of lipid bilayer covered organelles, such as the nucleus mitochondria, and endoplasmic reticulum,
-                and the rest of the cell is filled with cytoplasm and unordered proteins. However, recent discoveries
-                and insight suggest that membraneless organelles known as biomolecular condensates play a much bigger 
-                role within cells. My research was focused on understanding how probe particles interact with the condensate 
-                boundary, specifically how adding a polymer layer to the probe particle or adjusting the size of the probe particle
-                could impact the particle's ability to penetrate the condensate boundary. We used polyadenylic acid RNA (PolyA) for the basis of our condensate,
-                which is a string of RNA with a chain of adenine nucleotides attached to the end. Additionally, we attached 
-                polyethylene glycol (PEG) particles, which act as a crowding agent inside of the condensate, changing its formation.
-                For the probe particles, we used a neutral particle coated in PEG, with the theory that by coating the probe particle
-                in the same material as the crowding agent inside of the condensate, it would have a higher probability of moving 
-                inside of the condensate. Over the ten weeks, I was given the opportunity to present my research at the REU
-                poster session and present to my entire lab. It was an invaluable first experience in the research field and
-                fueled my motivation to pursue research as a career.
 
-                <br>
-                <br>
-            </p>
-            <img src="con2.png" class="image" id="image7">
-            <img src="con1.png" class="image" id="image8">
+    <div class="container">
+        <div class="box box-right">
+            <div class="box-content">
+                <h3>Using AI Methods to Unfold Detector Effects from Ratios
+                    Observables Obtained from High Energy Particle Collision Data</h3>
+                <p class="text1">
+                    Unfolding is a critical computational technique in experimental physics, as it 
+                    gives insight into the true characteristics of data that have been altered 
+                    through measurement. In the context of high-energy particle collisions, 
+                    fundamental particle phenomenology is modeled by probability density functions 
+                    (pdf) for various underlying physical quantities such as the momentum and energy 
+                    of final-state particles, which are testing aspects of the Standard Model of 
+                    Particle physics, the theory that describes particles at the smallest distance 
+                    ever probed by human means. In particular interest to the Large Hadron Collider
+                     (LHC), the premier high-energy physics facility in the world, is uncovering the
+                      theory of the strong interaction, which is responsible for the process of proton 
+                      collision, several fundamental processes, and production of final-state particles.
+                       However, to observe probability functions predicted by QCD and measurable effects, 
+                       it is necessary to use detectors that can distort these pdfs and quantities through
+                        subtle interactions. Unfolding techniques allow us to use models of these detector 
+                        effects by simulating the complex instrumentation used for detection to ultimately 
+                        make inference about underlying pdfs that could be compared to theoretical predictions.
+                         To construct unfolding methods of significant interest for testing the theory of 
+                         QCD at hadron collider is the measurement of ratio observables as they’re significantly
+                          more precise than absolute measurements by exploiting positive correlations between 
+                      systematic uncertainties to mitigate them. Subsequently, the ratios are sensitive to
+                       differences in any given QCD effects between processes because of the correlation between
+                        processes. They are therefore ideal for fine-tuning modeling issues that are difficult 
+                        to study in an absolute cross-section measurement. The problem with ratio measurements 
+                        is that we do not know how to unfold them because there is no event migration between 
+                        bins of an observable ratio. Unfolding would then have to be done separately between the numerator 
+                        and the denominator, which breaks some of the correlations that are exploited in ratio measurements.
+                         A bin-by-bin correction to a ratio would assume that there is no correlation between bins of an observable, 
+                         which is not accurate. The Tufts ATLAS group has recently developed an object-based event-by-event unfolding 
+                         algorithm using Conditional Denoising Diffusion Probabilistic Models (cDDPM)(Pazos et al.). The 
+                         objective of this project is to use this algorithm to demonstrate that the ratio of observables 
+                         can be unfolded, and by comparing standard methods with our diffusion model unfolding, we show 
+                         the upsides of our method.
+
+                </p>
+            </div>
+            <div class="image-group-2">
+                <img src="thesis3.png" class="image">
+                <img src="thesis1.png" class="image">
+                <img src="thesis2.png" class="image">
+            </div>
+        </div>
+        <div class="box box-left">
+            <div class="box-content">
+                <h2>Non-invasive method for Analyzing Brain Structure in Neurodegenerative Diseases</h2>
+                <p class="text1">
+                    The goal of this project was to create a non-invasive method to analyze the neural structure of the brain.
+                    Since the brain is the most essential part of the human anatomy, its crucial we understands its strcutre.
+                    Specifically, neurodegenerative diseases affect several millions world wide, so we are building a method 
+                    that can identify early signs of neurodegenerative diseases. By identifying it early, we can save many people,
+                    some of which may have not even known they were at risk. Using the fact that the brain is composed 75 percent of 
+                    water, we look at the diffusion of water particles inside of the brain. Since the presence of a neurodegenerative 
+                    disease would affect axons, as they would begin to "bead", we can search for any patterns in the diffusion that 
+                    would reflect geometrical changes in the axon. This project started with the MIT think competition and creating 
+                    an axon simulation where the axons were rectangular prisms and the beaded axons were just larger rectangles. Now we
+                    have worked with MGH to analyze real axon data and use our algorithm to analyze the diffusion patterns among both 
+                    normal and beaded axons. We hope this research can lead to better health technqiues that will directly support
+                    those who are at rist for neurodegenerative diseases. I personally have had family affected by neurodegenerative diseases
+                    and I want to make a better and safer world for people like them.
+                </p>
+            </div>
+            <div class="image-group-1">
+                <img src="ax1.png" alt="Research 1">
+                <img src="ax2.png" alt="Research 2">
+            </div>
+        </div>
+        <div class="box box-right">
+            <div class="box-content">
+                <h2>Single Particle Diffusion on Templated Surfaces</h2>
+                <p class="text1">
+                    The goal of this project was to understand the mechanism of colloidal crystal growth, specifically in regards to a
+                    previous project where we observed different rates of growth for two identical materials of different orientations.
+                    Colloids are important materials for understanding particle interactions as they are large enough to accurately observe 
+                    under quality microscopes, but also obey properties of much smaller particles. Specifically, we were interested in
+                    the diffusion of particles along the surface of a crystal. While building a clean monolayer of crystal is a relatively
+                    difficult, we had access to extremely-fine templates that copied the structure of a FCC crystal. For my project, we had
+                    to dilute a silica solution until it was thin enough to ensure no particles would interact with any other. Then, we 
+                    imaged the particles diffusing on the template at more than 100 frames per second, and created software to track particles
+                    and their trajectory over the imaging duration. At these high framerates, we could calculate both diffusion with small 
+                    and large steps, which gave us insight into how often each particle moved between each crystal section. From there, we 
+                    calculated the diffusion coefficient and other metrics that showed up characteristics of the particle movement. Comparing
+                    the particle diffusions on different templates supported our findings in the previous project. It was fruitful work to
+                    see the time and effort I had put into this project as a whole ended with a thorough explanation of our observations. 
+                </p>
+            </div>
+            <div class="image-group-1">
+                <img src="part1.png" class="image" id="image9">
+                <img src="part2.png" class="image" id="image10">
+            </div>
+        </div>
+        <div class="box box-left">
+            <div class="box-content">
+                <h2>Identification of Crystals in Liquid to Solid Transition</h2>
+                <p class="text1">
+                    The goal of this project was to develop techniques to identify crystal growth in 
+                    the transition between liquid to solid phases. Clasically, there are several methods
+                    available to identify crystals, such as Q6 and topology methods. These methods mostly
+                    include using a particle's distance to each of its neighboring particles to identify 
+                    crystal-like particles. These methods are important and work effeciently in many systems,
+                    but we were looking to identify crystal structures formed during the transition between liquid
+                    and solid structures. To complete this, we looked at each particles Voronoi structure. <br>
+                    <br>
+                    A Voronoi Cell by definition is the space closest to a particle more so than any other neighboring particle.
+                    Given a system of colloidal particles in a 3D space, this results in a polyhedral structure. With this 
+                    polyhedral, we looked at many of its characteristics using a visualization software, Ovito Pro, and 
+                    creating python scripts that would allow us to calculate bond angles and face degrees to identify crystal structures.
+                    Comparing to other methods, both visually and raw data, we saw similarities between previous identification 
+                    methods and ours, and we could identify many cases where small pockets of crystal-like structures were
+                    identified during the phase transition. 
+                </p>
+            </div>
+            <div class="image-group-1">
+                <img src="particle.png" class="image" id="image1">
+                <img src="Voronoi.png" class="image" id="image2">
+            </div>
+        </div>
+        <div class="box box-right">
+            <div class="box-content">
+                <h2>Differential growth in a Colloidal System</h2>
+                <p class="text1">
+                    The goal of this project, in the summer of 2023, was to
+                    use colloidal systems to understand crystal structures, specifically looking
+                    FCC crystals and their structure at boundaries. Our basic philosophy was relatively
+                    simple: to identify whether two crystals would grow at different rates. Given two crystals
+                    growing adjacently, the boundary between the crystals will begin to "tilt" towards the higher
+                    density crystal as it will take less volume than the other. Thus, it makes sense for two crystals
+                    of different density to have this "tilt" at the boundary, so we looked at whether an identical crystal
+                    at a different orientation would cause any differential growth.
+                    While it would be most obvious for two crystals of the same density to grow at the same rate, we observed 
+                    that varying the orientation between two identical crystals, we noticed a tilt at the boundary, indicating 
+                    that the growth between the crystals is different. We had several more trials, all of which had similar 
+                    results, where the tilt of the boundary was between 51-56 degrees relative to the xy-plane. We presume 
+                    there is some interaction between the particles at the boundary where the high layer density of one orientation 
+                    causes particles to shift to the higher density since particles will always try to pack closely.
+                </p>
+            </div>
+            <div class="image-group-1">
+                <img src="tilt.png" class="image" id="image3">
+                <img src="fcc.png" class="image" id="image4">
+            </div>
+        </div>
+        <div class="box box-left">
+            <div class="box-content">
+                <h2>TaskBird, a task management web application</h2>
+                <p class="text1">
+                    The goal of this project was to create an web application that focused on task management with the 
+                    special feature of connecting and overlaying a personal google calendar. The home page of this webstie acts
+                    as the hub of all the elements as both calendar page elements and TODO list elements are shown. The calendar page
+                    uses the google calendar API to create a TaskBird calendar/check if a TaskBird Calendar exists in your personal
+                    account and then gives you options to view, add, or delete events on any sepcififed day. The TODO page gives a simple 
+                    list that allows the user to create an event/task to complete with a certain level of urgency. This list is 
+                    ordered by the specified urgency and once a task is completed, you have an identical list below with the completed 
+                    tasks. Using the browser cookies, I have all the tasks, both in the TODO list and completed list, saved within the
+                    browser memory, which can be easily cleared with a given button. For the home page, we use this saved memory 
+                    to overlay all the tasks in the TODO list into a simple block. Additionally, we simply accessed the google calendar
+                    again and let the user view it through the home page, but not give the options for edits. The last part of the
+                    website is a template for a future feature, where users will be able to either post their own profile for
+                    advertising professional level skills and other users can contact these "professionals" to learn their skills
+                    for a specific price.
+                    <br>
+                    <br>
+                </p>
+            </div>
+            <div class="image-group-1">
+                <img src="homepage.png" class="image" id="image5">
+                <img src="todo.png" class="image" id="image6">
+            </div>
+        </div>
+        <div class="box box-right">
+            <div class="box-content">
+                <h2>Understanding affinity between condensates and probe particles</h2>
+                <p class="text1">
+                    It's commonly believed that most crucial aspects within cells are determined through an organized 
+                    system of lipid bilayer covered organelles, such as the nucleus mitochondria, and endoplasmic reticulum,
+                    and the rest of the cell is filled with cytoplasm and unordered proteins. However, recent discoveries
+                    and insight suggest that membraneless organelles known as biomolecular condensates play a much bigger 
+                    role within cells. My research was focused on understanding how probe particles interact with the condensate 
+                    boundary, specifically how adding a polymer layer to the probe particle or adjusting the size of the probe particle
+                    could impact the particle's ability to penetrate the condensate boundary. We used polyadenylic acid RNA (PolyA) for the basis of our condensate,
+                    which is a string of RNA with a chain of adenine nucleotides attached to the end. Additionally, we attached 
+                    polyethylene glycol (PEG) particles, which act as a crowding agent inside of the condensate, changing its formation.
+                    For the probe particles, we used a neutral particle coated in PEG, with the theory that by coating the probe particle
+                    in the same material as the crowding agent inside of the condensate, it would have a higher probability of moving 
+                    inside of the condensate. Over the ten weeks, I was given the opportunity to present my research at the REU
+                    poster session and present to my entire lab. It was an invaluable first experience in the research field and
+                    fueled my motivation to pursue research as a career.
+    
+                    <br>
+                    <br>
+                </p>
+            </div>
+            <div class="image-group-1">
+                <img src="con2.png" class="image" id="image7">
+                <img src="con1.png" class="image" id="image8">
+            </div>
         </div>
     </div>
-    
-    <script>
-        var navOpen = false;
-        function toggleNav() {
-            if(!navOpen){
-                document.querySelector('.nav-bar').style.width = '10vw';
-                document.querySelector('.container').style.marginLeft = '10vw';
-                document.querySelector('.menu-btn').classList.add('active');
-                navOpen = true;
-            }else{
-                document.querySelector('.nav-bar').style.width = '0';
-                document.querySelector('.container').style.marginLeft= '0';
-                document.querySelector('.menu-btn').classList.remove('active');
-                navOpen = false;
-            }
-        }
-    </script>
 
 </body>
 </html>
